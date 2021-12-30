@@ -31,30 +31,9 @@ public class RoadGenerator : GeneratorBase
     protected override void StartGame()
     {
         // Start endless segments generation
+        Debug.Log("Road generation begins");
         StartCoroutine(GeneratorUpdate());
     }
-
-    /*protected override void GenerateObjects(int amount, Vector3 offset)
-    {
-        Vector3 pos = new Vector3(0, 0, 0);
-
-        for (int i = 0; i < amount; i++)
-        {
-            // Choose random segment prefab
-            int randomSegment = Random.Range(0, objectPrefabs.Length);
-
-            if (currentObjects.Count > 0)
-            {
-                // Define starting position of the segment
-                // depending on the position and size of the previous segment
-                pos = currentObjects[currentObjects.Count - 1].transform.position;
-                pos += new Vector3(0, 0, currentObjects[currentObjects.Count - 1].GetComponent<Renderer>().bounds.size.z);
-            }
-
-            // Instantiate segment and add to the current segments list
-            currentObjects.Add(Instantiate(objectPrefabs[randomSegment], pos, Quaternion.identity));
-        }
-    }*/
 
     protected override IEnumerator GeneratorUpdate()
     {

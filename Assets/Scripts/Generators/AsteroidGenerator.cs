@@ -41,6 +41,7 @@ public class AsteroidGenerator : GeneratorBase
     protected override void StartGame()
     {
         // Start endless asteroids generation
+        Debug.Log("Asteroids generation begins");
         StartCoroutine(GeneratorUpdate());
     }
 

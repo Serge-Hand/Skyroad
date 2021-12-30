@@ -15,14 +15,17 @@ public class GeneratorBase : MonoBehaviour
     protected List<GameObject> currentObjects;
     protected float secondsBetweenGeneration;
 
-    // Generate an object with offset
-    protected void GenerateObject(Vector3 offset)
+    private void Awake()
     {
         // Events binding
         GameEvents.instance.onSpeedUp += SetTime;
         GameEvents.instance.onSpeedDown += SetTime;
         GameEvents.instance.onStartGame += StartGame;
+    }
 
+    // Generate an object with offset
+    protected void GenerateObject(Vector3 offset)
+    {
         // Choose random object prefab
         int randomSegment = Random.Range(0, objectPrefabs.Length);
 
